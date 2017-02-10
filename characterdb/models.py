@@ -84,6 +84,5 @@ class PlayedCharacter(models.Model):
     #pc_disadvantages_list
 
 
-
 class GMCharacter(models.Model):
     gm_character_name = models.CharField(primary_key=True,max_length=200)
