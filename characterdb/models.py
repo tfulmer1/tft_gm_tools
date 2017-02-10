@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 # Create your models here.
 class Skill(models.Model):
     skill_name = models.CharField(primary_key=True,max_length=200)
@@ -86,3 +87,16 @@ class PlayedCharacter(models.Model):
 
 class GMCharacter(models.Model):
     gm_character_name = models.CharField(primary_key=True,max_length=200)
+    gm_char_race = models.CharField(max_length=200)
+    gm_char_class= models.CharField(max_length=200)
+    gm_char_age = models.CharField(max_length=200)
+    gm_char_sex = models.CharField(max_length=200)
+    gm_char_description = models.TextField()
+    gm_char_st = models.IntegerField()
+    gm_char_dx = models.IntegerField()
+    gm_char_iq = models.IntegerField()
+    #gm_char_skill_list
+    #gm_char_spell_list
+    #gm_char_weapon_list
+    #gm_char_armor_list
+    #gm_char_item_list
