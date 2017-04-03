@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^diceroll/', include('diceroll.urls')),
+    url(r'^dicestats/', include('dicestats.urls'))
 ]
