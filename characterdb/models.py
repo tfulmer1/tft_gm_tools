@@ -5,6 +5,8 @@ from django.db import models
 
 # Create your models here.
 class Skill(models.Model):
+    def __unicode__(self):
+       return self.skill_name
     skill_name = models.CharField(primary_key=True,max_length=200)
     skill_iq_min = models.IntegerField(default=10)
     skill_memory = models.IntegerField(default=1)
@@ -13,6 +15,8 @@ class Skill(models.Model):
 
 
 class Spell(models.Model):
+    def __unicode__(self):
+       return self.spell_name
     spell_name = models.CharField(primary_key=True,max_length=200)
     spell_iq_min = models.IntegerField(default=10)
     spell_memory = models.IntegerField(default=1)
@@ -21,6 +25,8 @@ class Spell(models.Model):
 
 
 class Item(models.Model):
+    def __unicode__(self):
+       return self.item_name
     item_name = models.CharField(primary_key=True,max_length=200)
     item_price = models.FloatField()
     item_encumbrance = models.FloatField()
@@ -33,6 +39,8 @@ class Item(models.Model):
 
 
 class Weapon(models.Model):
+    def __unicode__(self):
+       return self.weapon_name
     weapon_name = models.CharField(primary_key=True,max_length=200)
     weapon_dx_mod = models.IntegerField(default=0)
     weapon_st_mod = models.IntegerField(default=0)
@@ -46,6 +54,8 @@ class Weapon(models.Model):
 
 
 class Armor(models.Model):
+    def __unicode__(self):
+       return self.armor_name
     armor_name = models.CharField(primary_key=True,max_length=200)
     armor_description = models.TextField()
     armor_damage_reduction = models.IntegerField()
@@ -58,6 +68,8 @@ class Armor(models.Model):
 
 
 class PlayedCharacter(models.Model):
+    def __unicode__(self):
+       return "{0} played by: {1}".format(self.char_name, self.player_name)
     char_name = models.CharField(primary_key=True,max_length=200)
     player_name = models.CharField(max_length=200)
     char_race = models.CharField(max_length=200)
@@ -80,32 +92,42 @@ class PlayedCharacter(models.Model):
 
 
 class char_skill_list(models.Model):
-    char_name = models.CharField(primary_key=True,max_length=200)
-    skill_name = models.CharField(primary_key=True,max_length=200)
+    def __unicode__(self):
+       return "{0} Skill: {1}".format(self.char_name, self.skill_name)
+    char_name = models.CharField(max_length=200)
+    skill_name = models.CharField(max_length=200)
     study = models.BooleanField(default=False)
 
 
 class char_spell_list(models.Model):
-    char_name = models.CharField(primary_key=True,max_length=200)
-    spell_name = models.CharField(primary_key=True,max_length=200)
+    def __unicode__(self):
+       return "{0} Spell: {1}".format(self.char_name, self.spell_name)
+    char_name = models.CharField(max_length=200)
+    spell_name = models.CharField(max_length=200)
     study = models.BooleanField(default=False)
 
 
 class char_item_list(models.Model):
-    char_name = models.CharField(primary_key=True,max_length=200)
-    item_name = models.CharField(primary_key=True,max_length=200)
+    def __unicode__(self):
+       return "{0} Item: {1}".format(self.char_name, self.item_name)
+    char_name = models.CharField(max_length=200)
+    item_name = models.CharField(max_length=200)
     count = models.IntegerField(default=1)
 
 
 class char_weapon_list(models.Model):
-    char_name = models.CharField(primary_key=True,max_length=200)
-    weapon_name = models.CharField(primary_key=True,max_length=200)
+    def __unicode__(self):
+       return "{0} Weapon: {1}".format(self.char_name, self.weapon_name)
+    char_name = models.CharField(max_length=200)
+    weapon_name = models.CharField(max_length=200)
     count = models.IntegerField(default=1)
     is_equipped = models.BooleanField(default=False)
 
 
 class char_armor_list(models.Model):
-    char_name = models.CharField(primary_key=True,max_length=200)
-    armor_name = models.CharField(primary_key=True,max_length=200)
+    def __unicode__(self):
+       return "{0} Armor: {1}".format(self.char_name, self.armor_name)
+    char_name = models.CharField(max_length=200)
+    armor_name = models.CharField(max_length=200)
     count = models.IntegerField(default=1)
     is_equipped = models.BooleanField(default=False)
