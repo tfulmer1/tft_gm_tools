@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'characterdb.apps.CharacterdbConfig'
+    'characterdb.apps.CharacterdbConfig',
     'diceroll.apps.DicerollConfig',
     'dicestats.apps.DicestatsConfig',
     'django.contrib.admin',
