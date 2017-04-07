@@ -58,45 +58,54 @@ class Armor(models.Model):
 
 
 class PlayedCharacter(models.Model):
-    pc_char_name = models.CharField(primary_key=True,max_length=200)
+    char_name = models.CharField(primary_key=True,max_length=200)
     player_name = models.CharField(max_length=200)
-    pc_char_race = models.CharField(max_length=200)
-    pc_char_class = models.CharField(max_length=200)
-    pc_base_st = models.IntegerField()
-    pc_base_dx = models.IntegerField()
-    pc_base_iq = models.IntegerField()
-    pc_base_fst = models.IntegerField()
-    pc_base_miq = models.IntegerField()
-    pc_age = models.IntegerField()
-    pc_sex = models.CharField(max_length=1)
-    pc_exp = models.IntegerField(default=0)
-    pc_background = models.TextField()
-    pc_description = models.TextField()
-    #pc_skill_list = TODO figure out how to make a list of objects elsewhere and link them here with relationship
-    #pc_item_list
-    #pc_armor_list
-    #pc_weapon_list
-    #pc_active_weapon
-    #pc_active_armor
-    #pc_active_shield
-    #pc_spell_list
-    #pc_studies_list
-    #pc_advantages_list
-    #pc_disadvantages_list
+    char_race = models.CharField(max_length=200)
+    char_class = models.CharField(max_length=200)
+    char_base_st = models.IntegerField()
+    char_current_health = models.IntegerField()
+    char_base_dx = models.IntegerField()
+    char_adj_dx = models.IntegerField()
+    char_base_iq = models.IntegerField()
+    char_base_fst = models.IntegerField()
+    char_current_fst = models.IntegerField()
+    char_base_miq = models.IntegerField()
+    char_age = models.IntegerField()
+    char_sex = models.CharField(max_length=1)
+    char_exp = models.IntegerField(default=0)
+    char_background = models.TextField()
+    char_description = models.TextField()
+    char_advantage = models.TextField()
+    char_disadvantage = models.TextField()
 
 
-class GMCharacter(models.Model):
-    gm_character_name = models.CharField(primary_key=True,max_length=200)
-    gm_char_race = models.CharField(max_length=200)
-    gm_char_class= models.CharField(max_length=200)
-    gm_char_age = models.CharField(max_length=200)
-    gm_char_sex = models.CharField(max_length=200)
-    gm_char_description = models.TextField()
-    gm_char_st = models.IntegerField()
-    gm_char_dx = models.IntegerField()
-    gm_char_iq = models.IntegerField()
-    #gm_char_skill_list
-    #gm_char_spell_list
-    #gm_char_weapon_list
-    #gm_char_armor_list
-    #gm_char_item_list
+class char_skill_list(models.Model):
+    char_name = models.CharField(primary_key=True,max_length=200)
+    skill_name = models.CharField(primary_key=True,max_length=200)
+    study = models.BooleanField(default=False)
+
+
+class char_spell_list(models.Model):
+    char_name = models.CharField(primary_key=True,max_length=200)
+    spell_name = models.CharField(primary_key=True,max_length=200)
+    study = models.BooleanField(default=False)
+
+
+class char_item_list(models.Model):
+    char_name = models.CharField(primary_key=True,max_length=200)
+    item_name = models.CharField(primary_key=True,max_length=200)
+    count = models.IntegerField(default=1)
+
+
+class char_weapon_list(models.Model):
+    char_name = models.CharField(primary_key=True,max_length=200)
+    weapon_name = models.CharField(primary_key=True,max_length=200)
+    count = models.IntegerField(default=1)
+    is_equipped = models.BooleanField(default=False)
+
+
+class char_armor_list(models.Model):
+    char_name = models.CharField(primary_key=True,max_length=200)
+    armor_name = models.CharField(primary_key=True,max_length=200)
+    count = models.IntegerField(default=1)
+    is_equipped = models.BooleanField(default=False)

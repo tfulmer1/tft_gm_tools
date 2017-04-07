@@ -27,13 +27,3 @@ def index(request):
                               </tr>""".format(x, prob, stars))
         response.append('</table>')
     return HttpResponse("<br>".join(response))
-
-
-'''
-<table>
-  <tr>
-    <th>Value</th>
-    <th>Probability</th>
-    <th>Graph</th>
-  </tr>
-'''
